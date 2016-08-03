@@ -1,0 +1,41 @@
+version: '2'
+services:
+  owncloud:
+    build: oc
+    ports:
+      - 443:443
+    volumes:
+      - ${PROFILE_DATADIR}:/var/www/html/data
+      - ${PROFILE_CFGDIR}:/var/www/html/config
+      - ${PROFILE_APPDIR}:/var/www/html/apps
+      - ${PROFILE_SSLCERT}:/cert.pem:ro
+      - ${PROFILE_SSLKEY}:/key.pem:ro
+    networks:
+      - backend
+    links:
+      - owncloud_db
+    environment:
+      - "DB_NAME=owncloud"
+      - "DB_USER=owncloud"
+      - "DB_PASS=${DB_PASS}"
+      - "DB_HOST=owncloud_db"
+      - "OC_DOMAIN=${OC_DOMAIN}"
+      - "OC_ADMINPASS=${OC_ADMINPASS}"
+      - "OC_WEBMASTER=${OC_WEBMASTER}"
+
+  owncloud_db:
+    image: mariadb:10
+    environment:
+      MYSQL_DATABASE: owncloud
+      MYSQL_USER: owncloud
+      MYSQL_PASSWORD: ${DB_PASS}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - ${PROFILE_DBDIR}:/var/lib/mysql
+    networks:
+      - backend
+
+networks:
+  backend:
+
+
