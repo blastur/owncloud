@@ -4,7 +4,7 @@ EXPOSE 443
 
 # Install sudo to be able to run occ-tool as www-data
 RUN apt-get update && \
-    apt-get install -y sudo && \
+    apt-get install -y sudo nano less && \
     rm -rf /var/lib/apt/lists/*
 
 COPY scripts/start_httpd.sh /start_httpd.sh
