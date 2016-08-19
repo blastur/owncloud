@@ -12,7 +12,7 @@ COPY config/autoconfig.php /root/autoconfig.php
 COPY config/owncloud_virtualhost.conf /root/owncloud_virtualhost.conf
 COPY scripts/occ /usr/local/sbin
 
-RUN a2enmod ssl
+RUN a2enmod ssl headers
 
 CMD ["/start_httpd.sh"]
 
