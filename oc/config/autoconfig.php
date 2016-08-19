@@ -8,5 +8,6 @@ $AUTOCONFIG = array(
   "directory"     => "/var/www/html/data",
   "adminlogin"    => "admin",
   "adminpass"     => "-x-oc-adminpass-x-",
+  "updatechecker" => false,
 );
 
