@@ -7,6 +7,8 @@ if [ -z "${PROFILE}" ]; then
 	exit 1
 fi
 
+shift
+
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PROFILEDIR=$(readlink -f $(dirname ${PROFILE}))
 
@@ -34,4 +36,4 @@ fi
 #mkdir -p "${PROFILE_CFGDIR}"
 #mkdir -p "${PROFILE_APPDIR}"
 
-docker-compose up -d
+(cd ${SCRIPTDIR} && exec docker-compose up -d $*)
