@@ -39,10 +39,9 @@ Use down.sh to shutdown the containers again:
 
 All ownCloud configs and data are stored in the profiles directory. 
 
-myprofile/owncloud-apps - Installed ownCloud apps.
-myprofile/owncloud-cfg - ownCloud configuration files. Generated at first boot.
-myprofile/owncloud-data - User files/data.
-myprofile/owncloud-db - MySQL database.
+* myprofile/owncloud-cfg - ownCloud configuration files. Generated at first boot.
+* myprofile/owncloud-data - User files/data.
+* myprofile/owncloud-db - MySQL database.
  
 If you restart your containers using down.sh and up.sh, all data will be
 kept. If you wish to create a fresh ownCloud server instance, add a new
