@@ -1,4 +1,4 @@
-FROM owncloud:9-apache
+FROM owncloud:9.1.0-apache
 
 EXPOSE 443
 
