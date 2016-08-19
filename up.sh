@@ -22,7 +22,6 @@ export PROFILE_SSLCERT="${PROFILEDIR}/cert.pem"
 export PROFILE_SSLKEY="${PROFILEDIR}/key.pem"
 export PROFILE_DATADIR="${PROFILEDIR}/owncloud-data"
 export PROFILE_CFGDIR="${PROFILEDIR}/owncloud-cfg"
-export PROFILE_APPDIR="${PROFILEDIR}/owncloud-apps"
 export PROFILE_DBDIR="${PROFILEDIR}/owncloud-db"
 
 if [ ! -f "${PROFILE_SSLCERT}" -o ! -f "${PROFILE_SSLKEY}" ]; then
@@ -31,9 +30,8 @@ if [ ! -f "${PROFILE_SSLCERT}" -o ! -f "${PROFILE_SSLKEY}" ]; then
     exit 1
 fi
 
-#mkdir -p "${PROFILE_DATADIR}"
-#mkdir -p "${PROFILE_DBDIR}"
-#mkdir -p "${PROFILE_CFGDIR}"
-#mkdir -p "${PROFILE_APPDIR}"
+mkdir -p "${PROFILE_DATADIR}"
+mkdir -p "${PROFILE_DBDIR}"
+mkdir -p "${PROFILE_CFGDIR}"
 
 (cd ${SCRIPTDIR} && exec docker-compose up -d $*)

@@ -7,7 +7,6 @@ services:
     volumes:
       - ${PROFILE_DATADIR}:/var/www/html/data
       - ${PROFILE_CFGDIR}:/var/www/html/config
-      - ${PROFILE_APPDIR}:/var/www/html/apps
       - ${PROFILE_SSLCERT}:/cert.pem:ro
       - ${PROFILE_SSLKEY}:/key.pem:ro
     networks:
