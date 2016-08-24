@@ -1,6 +1,7 @@
 version: '2'
 services:
   owncloud:
+    restart: always
     build: oc
     ports:
       - 443:443
@@ -23,6 +24,7 @@ services:
       - "OC_WEBMASTER=${OC_WEBMASTER}"
 
   owncloud_db:
+    restart: always
     image: mariadb:10
     environment:
       MYSQL_DATABASE: owncloud
