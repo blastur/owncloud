@@ -34,4 +34,4 @@ mkdir -p "${PROFILE_DATADIR}"
 mkdir -p "${PROFILE_DBDIR}"
 mkdir -p "${PROFILE_CFGDIR}"
 
-(cd ${SCRIPTDIR} && exec docker-compose up -d $*)
+(cd ${SCRIPTDIR} && exec ${SCRIPTDIR}/docker-compose up -d $*)
