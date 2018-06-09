@@ -7,6 +7,9 @@ RUN apt-get update && \
     apt-get install -y sudo nano less && \
     rm -rf /var/lib/apt/lists/*
 
+RUN mkdir -p /var/php_tmp_uploads/
+COPY config/php_uploadsize.ini /usr/local/etc/php/conf.d/php_uploadsize.ini
+
 COPY scripts/start_httpd.sh /start_httpd.sh
 COPY config/autoconfig.php /root/autoconfig.php
 COPY config/owncloud_virtualhost.conf /root/owncloud_virtualhost.conf
